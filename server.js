@@ -1,15 +1,15 @@
 console.log("This will be the server");
 
 const express = require("express");
+const routes = require("./routes/api/index");
+
 const app = express();
 const port = process.env.PORT || 3001;
 
-//home page
-//notes page
-// get /api/notes
-// get /api/notes/:id
-// post /api/notes
-// delete /api/notes
+//middlewares
+
+//routes
+app.use(routes);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
