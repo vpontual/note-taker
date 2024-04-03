@@ -2,7 +2,7 @@
 const express = require("express");
 const path = require("path");
 
-const routes = require("./routes/api/index");
+const routes = require("./routes/index");
 
 //App/Port
 const app = express();
