@@ -1,14 +1,13 @@
-const fb = require("express").Router();
+const express = require("express");
+const path = require("path");
+const router = express.Router();
 
-// Helper function to generate unique ids
-const uuid = require("../helpers/uuid");
-
-// Helper functions for reading and writing to the JSON file
-const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
-
-//Hello World
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+router.get("/notes", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "public", "notes.html"));
 });
 
-module.exports = fb;
+router.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+});
+
+module.exports = router;
