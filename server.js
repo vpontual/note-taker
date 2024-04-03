@@ -1,6 +1,5 @@
 //Dependencies
 const express = require("express");
-
 const routes = require("./routes/index");
 
 //App/Port

@@ -1,7 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const { v4: uuidv4 } = require("uuid");
+const uuid = require("../helpers/uuid.js");
 const router = express.Router();
 
 const dbPath = path.join(__dirname, "..", "db", "db.json");
@@ -19,7 +19,7 @@ router.get("/notes", (req, res) => {
 });
 
 router.post("/notes", (req, res) => {
-  const newNote = { ...req.body, id: uuidv4() };
+  const newNote = { ...req.body, id: uuid() };
   fs.readFile(dbPath, "utf8", (err, data) => {
     if (err) {
       console.error("Error reading the db.json file:", err);
